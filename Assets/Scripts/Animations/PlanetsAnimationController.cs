@@ -23,7 +23,7 @@ public class PlanetsAnimationController : MonoBehaviour
 
         rotationAmount *= (int)rotatinDirection;
 
-        transform.DORotate(rotationAmount, rotationSpeed, RotateMode.FastBeyond360)
+        transform.DOLocalRotate(rotationAmount, rotationSpeed, RotateMode.FastBeyond360)
             .SetLoops(-1, LoopType.Restart)
             .SetEase(Ease.Linear)
             .SetSpeedBased(true);

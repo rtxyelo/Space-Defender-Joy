@@ -6,6 +6,14 @@ TagManager:
   tags:
   - StarUI
   - EnemySpawnPoint
+  - BottomWall
+  - Scout
+  - Raider
+  - Destroyer
+  - Dreadnought
+  - Enemy
+  - DeathRay
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -14,12 +22,12 @@ TagManager:
   - Water
   - UI
   - Wall
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BackPlanet
+  - Player
+  - Shot
+  - BottomWall
+  - TopWall
+  - EnemyShot
   - 
   - 
   - 

@@ -7,7 +7,6 @@ public static class MonobehaviourExtensions
         {
             value.StopCoroutine(routine);
             routine = null;
-            Debug.Log("Coroutine is stopped!");
         }
     }
 }
