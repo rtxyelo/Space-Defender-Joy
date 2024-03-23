@@ -76,7 +76,6 @@ public class AudioBehaviour : MonoBehaviour
     public void PlayDamageSound()
     {
         damageSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey);
-        Debug.Log("Current volume " + damageSound.volume);
         damageSound.Play();
     }
 
@@ -103,5 +102,66 @@ public class AudioBehaviour : MonoBehaviour
         _music.Stop();
         loseSound.Play();
         _music.PlayDelayed(2.2f);
+    }
+}
+
+
+
+public class MusicEssence : MonoBehaviour
+{
+    public static MusicEssence Instance;
+
+    private AudioSource _musicSource;
+
+    private string _volumekey = "Volumekey";
+    public float VolumeValue { get; private set; }
+
+    private void Awake()
+    {
+        _musicSource = GetComponent<AudioSource>();
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            return;
+        }
+
+
+        Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetFloat(_volumekey, VolumeValue);
+    }
+
+    public void Initialize()
+    {
+        if (!PlayerPrefs.HasKey(_volumekey))
+            PlayerPrefs.SetFloat(_volumekey, 0);
+
+        VolumeValue = PlayerPrefs.GetFloat(_volumekey);
+        SetVolume(VolumeValue);
+    }
+
+    public void SetVolume(float volumeValue)
+    {
+        VolumeValue = volumeValue;
+        _musicSource.volume = volumeValue;
+    }
+}
+
+public class MusicDisplay : MonoBehaviour
+{
+    [SerializeField] private Slider _slider;
+    public void Initialize()
+    {
+        _slider.value = MusicEssence.Instance.VolumeValue;
+        _slider.onValueChanged.AddListener(MusicEssence.Instance.SetVolume);
+    }
+    private void OnDestroy()
+    {
+        _slider.onValueChanged.RemoveAllListeners();
     }
 }

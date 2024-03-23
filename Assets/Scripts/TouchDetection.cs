@@ -30,7 +30,7 @@ public class TouchDetection : MonoBehaviour
 
             if (touchArea.Contains(new Vector2(touchPosition.x, touchPosition.y)))
             {
-                Debug.Log("Touch in touch area!");
+                //Debug.Log("Touch in touch area!");
                 return true;
             }
         }
@@ -41,7 +41,7 @@ public class TouchDetection : MonoBehaviour
 
             if (touchArea.Contains(clockPosition))
             {
-                Debug.Log("Click in touch area!");
+                //Debug.Log("Click in touch area!");
                 return true;
             }
         }

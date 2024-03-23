@@ -40,7 +40,11 @@ public abstract class PlayerShipBase : MonoBehaviour
     [Range(1, 4)]
     protected int healthPoints;
 
+    protected int durabilityOrigin;
+
     protected bool isHit = false;
+
+    protected bool isHeal = false;
 
     protected bool isDead = false;
 
@@ -57,6 +61,8 @@ public abstract class PlayerShipBase : MonoBehaviour
     protected TutorialSceneController tutorialSceneController;
 
     public UnityEvent DeadEventHandler;
+
+    public UnityEvent ShotEventHandler;
 
     protected PlayerShipBase()
     {
@@ -81,7 +87,10 @@ public abstract class PlayerShipBase : MonoBehaviour
 
     protected virtual private void Awake()
     {
-        //shootingButton.onClick.AddListener(delegate { Shoot(); }) ;
+        durabilityOrigin = Durability;
+
+        DeadEventHandler = new UnityEvent();
+        ShotEventHandler = new UnityEvent();
 
         var obj = FindAnyObjectByType<TutorialSceneController>();
 
@@ -97,7 +106,7 @@ public abstract class PlayerShipBase : MonoBehaviour
         {
             if ((1 << LayerMask.NameToLayer("Enemy") & 1 << collision.gameObject.layer) != 0)
             {
-                Debug.Log("Player collide with enemy!");
+                //Debug.Log("Player collide with enemy!");
 
                 if (!isTutorial)
                     DamageHit(DamageType.Enemy);
@@ -107,7 +116,7 @@ public abstract class PlayerShipBase : MonoBehaviour
 
             if ((1 << LayerMask.NameToLayer("EnemyShot") & 1 << collision.gameObject.layer) != 0)
             {
-                Debug.Log("Player shot!");
+                //Debug.Log("Player shot!");
 
                 if (!isTutorial)
                     DamageHit(EnemyTagToDamageType(collision.gameObject.tag));
@@ -115,6 +124,15 @@ public abstract class PlayerShipBase : MonoBehaviour
                     TutorialDamageHit();
             }
         }
+    }
+
+    /// <summary>
+    /// Ignores collision of ship when it heal.
+    /// </summary>
+    protected virtual void HealIgnoreCollision(bool ignore)
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), ignore);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyShot"), ignore);
     }
 
     /// <summary>
@@ -154,31 +172,19 @@ public abstract class PlayerShipBase : MonoBehaviour
     /// Decrement durability damage.
     /// </summary>
     /// <param name="damageType">Which kind of damage taken</param>
-    protected virtual void DamageHit(DamageType damageType)
-    {
-        Durability -= (int)damageType;
-        Debug.Log($"Minus durability by {damageType}! Current durability index: " + Durability);
-
-        if (Durability <= 0)
-        {
-            Durability = 0;
-            HealthPoints--;
-            if (HealthPoints <= 0)
-            {
-                HealthPoints = 0;
-                ShipDestroyed(damageType);
-            }
-        }
-    }
+    protected abstract void DamageHit(DamageType damageType);
 
     /// <summary>
     /// Sets IsHit animation flag.
     /// </summary>
     /// <param name="_isHit">Value to set</param>
-    protected virtual void SetIsHit(int _isHit)
-    {
-        isHit = Convert.ToBoolean(_isHit);
-    }
+    protected abstract void SetIsHit(int _isHit);
+
+    /// <summary>
+    /// Sets IsHeal animation flag.
+    /// </summary>
+    /// <param name="_isHeal">Value to set</param>
+    protected abstract void SetIsHeal(int _isHeal);
 
     /// <summary>
     /// Sets IsDead animation flag.
@@ -192,15 +198,9 @@ public abstract class PlayerShipBase : MonoBehaviour
     /// HealthPoints equal zero.
     /// </summary>
     /// <param name="damageType">Which kind of damage taken</param>
-    protected virtual void ShipDestroyed(DamageType damageType)
-    {
-        DeadEventHandler?.Invoke();
-    }
+    protected abstract void ShipDestroyed(DamageType damageType);
 
-    public virtual void AddListener(UnityAction action)
-    {
-        DeadEventHandler.AddListener(action);
-    }
+    protected abstract void OnDestroy();
 
     /// <summary>
     /// Just player shooting function)

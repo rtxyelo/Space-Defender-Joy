@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFourController : EnemyControllerBase
+public class EnemyController : EnemyControllerBase
 {
     private Animator animator;
 
-    [HideInInspector]
-    public AudioBehaviour audioBehaviour;
-    
+    //[HideInInspector]
+    //public AudioBehaviour audioBehaviour;
+
     [Header("Misc")]
     [Space]
     [SerializeField]
@@ -17,7 +17,7 @@ public class EnemyFourController : EnemyControllerBase
     protected override void EnemyShoot()
     {
         //audioBehaviour.PlayShotSound();
-        var shot = Instantiate(shotPrefab, gameObject.transform.GetChild(1));
+        Instantiate(shotPrefab, gameObject.transform.GetChild(1));
 
     }
 
@@ -39,11 +39,10 @@ public class EnemyFourController : EnemyControllerBase
         isShooting = false;
     }
 
-    // todo Add animations and stuff
     protected override void EnemyDamageHit(int takenDamage)
     {
         base.EnemyDamageHit(takenDamage);
-        audioBehaviour.PlayDamageSound();
+        //audioBehaviour.PlayDamageSound();
         if (HealthPoints > 0)
         {
             SetIsHit(1);
@@ -61,5 +60,11 @@ public class EnemyFourController : EnemyControllerBase
         animator = GetComponent<Animator>();
         animator.SetBool("IsHit", isHit);
 
+    }
+
+    protected override void OnDestroy()
+    {
+        DestroyedHandler.RemoveAllListeners();
+        ShotHandler.RemoveAllListeners();
     }
 }

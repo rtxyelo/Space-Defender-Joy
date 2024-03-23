@@ -50,9 +50,9 @@ public abstract class EnemyControllerBase : MonoBehaviour
         IsCanShooting = isCanShooting;
     }
 
-    private UnityEvent destroyedHandler;
+    public UnityEvent DestroyedHandler;
 
-    private ShotEventHandler shotHandler;
+    public UnityEvent<int> ShotHandler;
 
     public virtual float MovingSpeed { get => movingSpeed; set => movingSpeed = value; }
     public virtual float ShootingDelay { get => shootingDelay; set => shootingDelay = value; }
@@ -62,8 +62,8 @@ public abstract class EnemyControllerBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        destroyedHandler = new UnityEvent();
-        shotHandler = new ShotEventHandler();
+        DestroyedHandler = new UnityEvent();
+        ShotHandler = new UnityEvent<int>();
     }
 
     protected virtual void Update()
@@ -82,7 +82,7 @@ public abstract class EnemyControllerBase : MonoBehaviour
             int collisionLayer = collision.gameObject.layer;
             if (bottomWallLayer == (1 << collisionLayer))
             {
-                destroyedHandler.Invoke();
+                DestroyedHandler?.Invoke();
                 Destroy(gameObject);
             }
 
@@ -92,12 +92,12 @@ public abstract class EnemyControllerBase : MonoBehaviour
             //    Destroy(gameObject);
             //}
 
-            //else if (collision.gameObject.CompareTag("DeathRay"))
-            //{
-            //    // SCORE INCREASE FOR THAT !!!
-            //    shotHandler.Invoke(pointsByKill);
-            //    Destroy(gameObject);
-            //}
+            else if (collision.gameObject.CompareTag("DeathRay"))
+            {
+                // SCORE INCREASE FOR THAT !!!
+                ShotHandler?.Invoke(pointsByKill);
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -106,16 +106,22 @@ public abstract class EnemyControllerBase : MonoBehaviour
         if (collision != null)
         {
             int collisionLayer = collision.gameObject.layer;
+
             if (playerLayer == (1 << collisionLayer))
             {
-                destroyedHandler.Invoke();
+                DestroyedHandler?.Invoke();
                 Destroy(gameObject);
             }
             else if (playerShotLayer == (1 << collisionLayer))
             {
                 // SCORE INCREASE FOR THAT !!!
-                shotHandler.Invoke(pointsByKill);
-                Destroy(gameObject);
+                var damage = 0;
+                if (collision.gameObject.TryGetComponent(out SingleShotBehaviour shot))
+                {
+                    damage = shot.Damage;
+                }
+
+                EnemyDamageHit(damage);
             }
         }
     }
@@ -127,39 +133,16 @@ public abstract class EnemyControllerBase : MonoBehaviour
         if (HealthPoints <= 0)
         {
             HealthPoints = 0;
-            EnemyShipDestroyed();
+            ShotHandler?.Invoke(pointsByKill);
+            Destroy(gameObject);
         }
     }
 
     protected abstract IEnumerator EnemyShootRoutine();
 
-    public virtual void AddListener(UnityAction<int> action)
-    {
-        shotHandler.AddListener(action);
-    }
-
-    public virtual void RemoveListener(UnityAction<int> action)
-    {
-        shotHandler.RemoveListener(action);
-    }
-
-    public virtual void AddListener(UnityAction action)
-    {
-        destroyedHandler.AddListener(action);
-    }
-
-    public virtual void RemoveListener(UnityAction action)
-    {
-        destroyedHandler.RemoveListener(action);
-    }
-
     protected abstract void EnemyShoot();
 
-    protected virtual void EnemyShipDestroyed()
-    {
-        Debug.Log($"Enemy destroyed!");
-        Destroy(gameObject);
-    }
+    protected abstract void OnDestroy();
 
     protected virtual void SetIsHit(int _isHit)
     {

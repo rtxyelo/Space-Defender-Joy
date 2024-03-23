@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 9147315395437819094}
   - component: {fileID: 1550849010430257136}
   - component: {fileID: 4476677119945258953}
-  - component: {fileID: 2885933209682019582}
+  - component: {fileID: 1794704002144423625}
   m_Layer: 3
   m_Name: Enemy_4
   m_TagString: Enemy
@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 5
 --- !u!58 &4476677119945258953
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.56
---- !u!114 &2885933209682019582
+--- !u!114 &1794704002144423625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8792623685421416943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e1953b6eefdaf242aca0cdeb15466b5, type: 3}
+  m_Script: {fileID: 11500000, guid: d914064befc5c2a448833d56c268c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointsByKill: 1000
@@ -315,5 +315,4 @@ MonoBehaviour:
   playerShotLayer:
     serializedVersion: 2
     m_Bits: 512
-  audioBehaviour: {fileID: 0}
   shotPrefab: {fileID: 4244508083194065902, guid: fcc00c738712a5042a2a68f6ecb84b50, type: 3}

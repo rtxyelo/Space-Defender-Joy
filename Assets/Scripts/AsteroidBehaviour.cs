@@ -18,16 +18,16 @@ public class AsteroidBehaviour : MonoBehaviour
     private LayerMask playerShotLayer;
 
     [SerializeField]
-    private float fallingSpeed = 1.0f;
+    private float fallingSpeed = 5.0f;
 
-    private UnityEvent destroyedHandler;
+    public UnityEvent DestroyedHandler;
 
-    private ShotEventHandler shotHandler;
+    public UnityEvent<int> ShotHandler;
 
     private void Awake()
     {
-        destroyedHandler = new UnityEvent();
-        shotHandler = new ShotEventHandler();
+        DestroyedHandler = new UnityEvent();
+        ShotHandler = new UnityEvent<int>();
     }
 
     private void Update()
@@ -42,7 +42,7 @@ public class AsteroidBehaviour : MonoBehaviour
             int collisionLayer = collision.gameObject.layer;
             if (bottomWallLayer == (1 << collisionLayer))
             {
-                destroyedHandler.Invoke();
+                DestroyedHandler?.Invoke();
                 Destroy(gameObject);
             }
 
@@ -68,35 +68,21 @@ public class AsteroidBehaviour : MonoBehaviour
             int collisionLayer = collision.gameObject.layer;
             if (playerLayer == (1 << collisionLayer))
             {
-                destroyedHandler.Invoke();
+                DestroyedHandler?.Invoke();
                 Destroy(gameObject);
             }
             else if (playerShotLayer == (1 << collisionLayer))
             {
                 // SCORE INCREASE FOR THAT !!!
-                shotHandler.Invoke(pointsByKill);
+                ShotHandler?.Invoke(pointsByKill);
                 Destroy(gameObject);
             }
         }
     }
 
-    public void AddListener(UnityAction<int> action)
+    private void OnDestroy()
     {
-        shotHandler.AddListener(action);
-    }
-
-    public void RemoveListener(UnityAction<int> action)
-    {
-        shotHandler.RemoveListener(action);
-    }
-
-    public void AddListener(UnityAction action)
-    {
-        destroyedHandler.AddListener(action);
-    }
-
-    public void RemoveListener(UnityAction action)
-    {
-        destroyedHandler.RemoveListener(action);
+        ShotHandler.RemoveAllListeners();
+        DestroyedHandler.RemoveAllListeners();
     }
 }

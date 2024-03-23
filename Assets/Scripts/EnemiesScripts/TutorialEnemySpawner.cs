@@ -54,7 +54,7 @@ public class TutorialEnemySpawner : MonoBehaviour
 
         while (m_numberOfEnemies > 0)
         {
-            EnemyOneController newEnemy = Spawn();
+            EnemyController newEnemy = Spawn();
             if (newEnemy != null)
             {
                 yield return new WaitForSeconds(m_spawnTime);
@@ -65,7 +65,7 @@ public class TutorialEnemySpawner : MonoBehaviour
         isSpawning = false;
     }
 
-    public EnemyOneController Spawn()
+    public EnemyController Spawn()
     {
         Debug.Log("enemyIndex " + enemyIndex);
         if (enemyIndex < 2)
@@ -76,9 +76,9 @@ public class TutorialEnemySpawner : MonoBehaviour
 
             spawnList.Add(spawnedEnemy);
 
-            EnemyOneController controller = spawnedEnemy.GetComponent<EnemyOneController>();
+            EnemyController controller = spawnedEnemy.GetComponent<EnemyController>();
 
-            controller.audioBehaviour = audioBehaviour;
+            //controller.audioBehaviour = audioBehaviour;
             controller.IsCanShooting = false;
 
             m_numberOfEnemies--;
@@ -90,7 +90,7 @@ public class TutorialEnemySpawner : MonoBehaviour
         return null;
     }
 
-    public void StopEnemy(EnemyOneController enemy)
+    public void StopEnemy(EnemyController enemy)
     {
         enemy.IsCanMoving = false;
     }

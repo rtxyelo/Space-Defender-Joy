@@ -19,11 +19,13 @@ public class SingleShotBehaviour : MonoBehaviour
     [SerializeField]
     private LayerMask enemyLayer;
 
+    public int Damage { get => damage; private set => damage = value; }
+
     private Rigidbody2D rb;
 
     private UnityEvent shotIsDestroyedHandler;
 
-    private ShotEventHandler enemyHitHandler;
+    private UnityEvent<int> enemyHitHandler;
 
     private void Start()
     {
@@ -61,6 +63,3 @@ public class SingleShotBehaviour : MonoBehaviour
         }
     }
 }
-
-[System.Serializable]
-public class ShotEventHandler : UnityEvent<int> { };
