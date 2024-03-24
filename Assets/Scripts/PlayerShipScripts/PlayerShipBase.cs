@@ -56,7 +56,7 @@ public abstract class PlayerShipBase : MonoBehaviour
 
     protected float directionX;
 
-    protected bool isTutorial;
+    public bool isTutorial;
 
     protected TutorialSceneController tutorialSceneController;
 
@@ -95,9 +95,14 @@ public abstract class PlayerShipBase : MonoBehaviour
         var obj = FindAnyObjectByType<TutorialSceneController>();
 
         if (obj != null)
+        {
             isTutorial = true;
-        else 
+        }
+        else
+        {
             isTutorial = false;
+            IsShootingAllow = true;
+        }
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -134,6 +139,8 @@ public abstract class PlayerShipBase : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), ignore);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyShot"), ignore);
     }
+
+
 
     /// <summary>
     /// Convert enemy tag to enum DamageType.

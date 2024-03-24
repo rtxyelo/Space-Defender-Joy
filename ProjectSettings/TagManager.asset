@@ -14,6 +14,12 @@ TagManager:
   - Enemy
   - DeathRay
   - Shield
+  - AsteroidOne
+  - AsteroidTwo
+  - EnemyOne
+  - EnemyTwo
+  - EnemyThree
+  - EnemyFour
   layers:
   - Default
   - TransparentFX
@@ -28,7 +34,7 @@ TagManager:
   - BottomWall
   - TopWall
   - EnemyShot
-  - 
+  - ShieldCollider
   - 
   - 
   - 

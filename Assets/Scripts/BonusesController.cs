@@ -132,8 +132,11 @@ public class BonusesController : MonoBehaviour, IBonusesController
 
             bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[1];
 
-            shieldBonusAnimators[shipIndex].SetBool("ShieldOff", false);
-            shieldBonusAnimators[shipIndex].Play("Activate");
+            if (shieldBonusAnimators[shipIndex] != null)
+            {
+                shieldBonusAnimators[shipIndex].SetBool("ShieldOff", false);
+                shieldBonusAnimators[shipIndex].Play("Activate");
+            }
 
             StartCoroutine(TutorialShieldRoutine(shipIndex));
         }
@@ -144,7 +147,8 @@ public class BonusesController : MonoBehaviour, IBonusesController
 
         yield return new WaitForSeconds(10f);
 
-        shieldBonusAnimators[shipIndex].SetBool("ShieldOff", true);
+        if (shieldBonusAnimators[shipIndex] != null)
+            shieldBonusAnimators[shipIndex].SetBool("ShieldOff", true);
 
         bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[0];
 
@@ -205,8 +209,11 @@ public class BonusesController : MonoBehaviour, IBonusesController
 
             bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[5];
 
-            deathRayBonusAnimators[shipIndex].SetBool("RayOff", false);
-            deathRayBonusAnimators[shipIndex].Play("Activate");
+            if (deathRayBonusAnimators[shipIndex] != null)
+            {
+                deathRayBonusAnimators[shipIndex].SetBool("RayOff", false);
+                deathRayBonusAnimators[shipIndex].Play("Activate");
+            }
 
             StartCoroutine(TutorialDeathRayRoutine(shipIndex));
         }
@@ -217,7 +224,8 @@ public class BonusesController : MonoBehaviour, IBonusesController
 
         yield return new WaitForSeconds(10f);
 
-        deathRayBonusAnimators[shipIndex].SetBool("RayOff", true);
+        if (deathRayBonusAnimators[shipIndex] != null)
+            deathRayBonusAnimators[shipIndex].SetBool("RayOff", true);
 
         bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[4];
 

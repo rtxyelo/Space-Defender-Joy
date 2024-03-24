@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7153634778759227259}
   m_Layer: 3
   m_Name: Asteroid_2
-  m_TagString: Enemy
+  m_TagString: AsteroidTwo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f609e940b251cc8499706139b725f275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsByKill: 50
+  moneyByKill: 50
   bottomWallLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -187,3 +187,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   fallingSpeed: 2
+  DestroyedHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  ShotHandler:
+    m_PersistentCalls:
+      m_Calls: []

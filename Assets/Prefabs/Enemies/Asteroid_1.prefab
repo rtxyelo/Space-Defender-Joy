@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8886812058663920206}
   m_Layer: 3
   m_Name: Asteroid_1
-  m_TagString: Enemy
+  m_TagString: AsteroidOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,3 +187,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   fallingSpeed: 2
+  DestroyedHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  ShotHandler:
+    m_PersistentCalls:
+      m_Calls: []

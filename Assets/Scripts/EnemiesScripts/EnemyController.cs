@@ -6,8 +6,8 @@ public class EnemyController : EnemyControllerBase
 {
     private Animator animator;
 
-    //[HideInInspector]
-    //public AudioBehaviour audioBehaviour;
+    [HideInInspector]
+    public AudioBehaviour AudioBehaviour;
 
     [Header("Misc")]
     [Space]
@@ -16,7 +16,7 @@ public class EnemyController : EnemyControllerBase
 
     protected override void EnemyShoot()
     {
-        //audioBehaviour.PlayShotSound();
+        AudioBehaviour.PlayEnemyShootingSound();
         Instantiate(shotPrefab, gameObject.transform.GetChild(1));
 
     }
@@ -42,7 +42,7 @@ public class EnemyController : EnemyControllerBase
     protected override void EnemyDamageHit(int takenDamage)
     {
         base.EnemyDamageHit(takenDamage);
-        //audioBehaviour.PlayDamageSound();
+        AudioBehaviour.PlayEnemyShotSound();
         if (HealthPoints > 0)
         {
             SetIsHit(1);
@@ -64,6 +64,7 @@ public class EnemyController : EnemyControllerBase
 
     protected override void OnDestroy()
     {
+        AudioBehaviour.PlayEnemyDeathSound();
         DestroyedHandler.RemoveAllListeners();
         ShotHandler.RemoveAllListeners();
     }

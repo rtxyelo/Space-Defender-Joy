@@ -6,11 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+    path: Assets/Scenes/WelcomeScene.unity
+    guid: 921e5c73e51deca479c9cd6123d513a1
   - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: cf331521ae532d74da660b1d92cc60ef
+  - enabled: 1
+    path: Assets/Scenes/PrivacyScene.unity
+    guid: 21269a7b606be6043a805b860b6d41e3
+  - enabled: 1
+    path: Assets/Scenes/TermsScene.unity
+    guid: c3ef1edd4898b0e4cbea0fb14a06e017
+  - enabled: 1
+    path: Assets/Scenes/SettingsScene.unity
+    guid: 95121310cc658124c8831c960473fe20
+  - enabled: 1
+    path: Assets/Scenes/ShopScene.unity
+    guid: 215e21b15616bdd4d853d05655503a2a
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/LevelsScene.unity
+    guid: 2adee9d036576944894ce474c67d23ce
+  - enabled: 1
+    path: Assets/Scenes/MainGameScene.unity
+    guid: 43ab6512325a65b40b91255149302242
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: e49607094b93a3e43b33df223d5b35f3, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: e5927fa402b679e40ba5f5c3b89044be, type: 2}

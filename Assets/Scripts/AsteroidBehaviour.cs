@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class AsteroidBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private int pointsByKill = 50;
+    private int moneyByKill = 50;
 
     [SerializeField]
     private LayerMask bottomWallLayer;
@@ -19,6 +19,9 @@ public class AsteroidBehaviour : MonoBehaviour
 
     [SerializeField]
     private float fallingSpeed = 5.0f;
+
+    [HideInInspector]
+    public AudioBehaviour AudioBehaviour;
 
     public UnityEvent DestroyedHandler;
 
@@ -74,7 +77,7 @@ public class AsteroidBehaviour : MonoBehaviour
             else if (playerShotLayer == (1 << collisionLayer))
             {
                 // SCORE INCREASE FOR THAT !!!
-                ShotHandler?.Invoke(pointsByKill);
+                ShotHandler?.Invoke(moneyByKill);
                 Destroy(gameObject);
             }
         }
@@ -82,6 +85,7 @@ public class AsteroidBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioBehaviour.PlayeAsteroidDestroyedSound();
         ShotHandler.RemoveAllListeners();
         DestroyedHandler.RemoveAllListeners();
     }

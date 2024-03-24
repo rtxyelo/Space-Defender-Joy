@@ -19,6 +19,8 @@ public class PlanetController : MonoBehaviour
 
     private DestroyEventHandler destroyedHandler;
 
+    public AudioBehaviour AudioBehaviour { get; set; }
+
     private void Awake()
     {
         destroyedHandler = new DestroyEventHandler();
@@ -42,6 +44,7 @@ public class PlanetController : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Shield"))
             {
+                AudioBehaviour.PlayeAsteroidDestroyedSound();
                 destroyedHandler.Invoke(gameObject);
                 Destroy(gameObject);
             }
@@ -56,11 +59,13 @@ public class PlanetController : MonoBehaviour
             if (playerLayer == (1 << collisionLayer))
             {
                 Debug.Log("Collide with player!");
+                AudioBehaviour.PlayeAsteroidDestroyedSound();
                 destroyedHandler.Invoke(gameObject);
                 Destroy(gameObject);
             }
             else if (playerShotLayer == (1 << collisionLayer))
             {
+                AudioBehaviour.PlayeAsteroidDestroyedSound();
                 destroyedHandler.Invoke(gameObject);
                 Destroy(gameObject);
             }

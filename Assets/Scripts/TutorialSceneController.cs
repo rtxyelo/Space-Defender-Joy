@@ -147,6 +147,8 @@ public class TutorialSceneController : MonoBehaviour
         kennyShipController.IsMoveAllow = false;
         kennyShipController.IsShootingAllow = false;
 
+        Debug.Log("SHOOT? " + kennyShipController.IsShootingAllow);
+
         dialogueManager = GetComponent<DialogueManager>();
         dialogueManager.PlayDialogue(DialogueNumber, isPlaySound);
 
@@ -156,8 +158,6 @@ public class TutorialSceneController : MonoBehaviour
 
     private void Update()
     {
-        //nextButton.enabled = nextButtonStatus;
-
         CheckCurrentDialogueNumber();
 
         if (isShift)

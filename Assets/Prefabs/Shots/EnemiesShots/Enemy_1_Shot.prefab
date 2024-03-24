@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotDirection: {x: 0, y: -1, z: 0}
   damage: 1
-  shotSpeed: 20
+  shotSpeed: 10
   wallLayer:
     serializedVersion: 2
     m_Bits: 1024

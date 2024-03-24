@@ -11,11 +11,18 @@ public class EnemySpawner : MonoBehaviour
     private List<Transform> _spawnPositions = new(15);
 
     [SerializeField]
-    private float _spawnTime = 0.5f;
+    private float _spawnTime;
+
+    [SerializeField]
+    private GameInfoDisplay gameInfoDisplay;
+
+    [SerializeField]
+    private AudioBehaviour audioBehaviour;
 
     private bool _isSpawning = false;
 
     public bool IsSpawnAllow { get; set; } = false;
+    public float SpawnTime { get => _spawnTime; set => _spawnTime = value; }
 
     private List<GameObject> _spawnedEnemies = new();
 
@@ -55,12 +62,14 @@ public class EnemySpawner : MonoBehaviour
 
         if (newEnemy.TryGetComponent(out EnemyController controller))
         {
-            controller.DestroyedHandler.AddListener(Destroyed);
+            controller.AudioBehaviour = audioBehaviour;
+            controller.ShotHandler.AddListener(Destroyed);
             controller.IsCanShooting = true;
         }
         else if (newEnemy.TryGetComponent(out AsteroidBehaviour component))
         {
-            component.DestroyedHandler.AddListener(Destroyed);
+            component.AudioBehaviour = audioBehaviour;
+            component.ShotHandler.AddListener(Destroyed);
         }
     }
 
@@ -86,8 +95,8 @@ public class EnemySpawner : MonoBehaviour
         _isSpawning = false;
     }
 
-    private void Destroyed()
+    private void Destroyed(int money)
     {
-        //Debug.Log("Enemy destroyed!");
+        gameInfoDisplay.IncreaseMoneyCount(money);
     }
 }

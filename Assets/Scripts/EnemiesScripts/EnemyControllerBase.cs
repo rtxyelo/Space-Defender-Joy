@@ -9,7 +9,7 @@ public abstract class EnemyControllerBase : MonoBehaviour
     [Header("Properties")]
     [Space]
     [SerializeField]
-    protected int pointsByKill;
+    protected int moneyByKill;
 
     [SerializeField]
     protected float movingSpeed;
@@ -85,19 +85,6 @@ public abstract class EnemyControllerBase : MonoBehaviour
                 DestroyedHandler?.Invoke();
                 Destroy(gameObject);
             }
-
-            //if (collision.gameObject.CompareTag("Shield"))
-            //{
-            //    destroyedHandler.Invoke();
-            //    Destroy(gameObject);
-            //}
-
-            else if (collision.gameObject.CompareTag("DeathRay"))
-            {
-                // SCORE INCREASE FOR THAT !!!
-                ShotHandler?.Invoke(pointsByKill);
-                Destroy(gameObject);
-            }
         }
     }
 
@@ -133,7 +120,7 @@ public abstract class EnemyControllerBase : MonoBehaviour
         if (HealthPoints <= 0)
         {
             HealthPoints = 0;
-            ShotHandler?.Invoke(pointsByKill);
+            ShotHandler?.Invoke(moneyByKill);
             Destroy(gameObject);
         }
     }

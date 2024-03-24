@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -34,6 +35,7 @@ public class GameInfoDisplay : MonoBehaviour
     private readonly string shieldBonusKey = "ShieldBonus";
     private readonly string gunBoostBonusKey = "GunBoostBonus";
     private readonly string deathRayBonusKey = "DeathRayBonus";
+    private readonly string moneyCountKey = "MoneyCount";
     private readonly string currentLevelKey = "CurrentLevel";
 
     private void Awake()
@@ -46,6 +48,12 @@ public class GameInfoDisplay : MonoBehaviour
 
         if (!PlayerPrefs.HasKey(deathRayBonusKey))
             PlayerPrefs.SetInt(deathRayBonusKey, 0);
+
+        if (!PlayerPrefs.HasKey(currentLevelKey))
+            PlayerPrefs.SetInt(currentLevelKey, 1);
+
+        if (!PlayerPrefs.HasKey(moneyCountKey))
+            PlayerPrefs.SetInt(moneyCountKey, 0);
 
         BonusesController bonusesController = FindAnyObjectByType<BonusesController>();
         
@@ -61,6 +69,13 @@ public class GameInfoDisplay : MonoBehaviour
     {
         if (_level.isActiveAndEnabled)
             _level.text = "Level " + PlayerPrefs.GetInt(currentLevelKey, 1).ToString();
+        _money.text = "0";
+    }
+
+    public void IncreaseMoneyCount(int money)
+    {
+        PlayerPrefs.SetInt(moneyCountKey, PlayerPrefs.GetInt(moneyCountKey, 0) + money);
+        _money.text = (Convert.ToInt32(_money.text) + money).ToString();
     }
 
     public void HealthCounterChange(int health)

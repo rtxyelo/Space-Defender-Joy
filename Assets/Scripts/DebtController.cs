@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DebtController : MonoBehaviour
@@ -9,7 +10,7 @@ public class DebtController : MonoBehaviour
     private List<Button> buttonsList = new(2);
 
     [SerializeField]
-    private List<Button> buttonsImagesList = new(2);
+    private List<Image> buttonsImagesList = new(2);
 
     [SerializeField]
     private GameObject tryToPayDebtPanel;
@@ -20,10 +21,17 @@ public class DebtController : MonoBehaviour
     [SerializeField]
     private SceneBehaviour sceneManager;
 
+    [SerializeField]
+    private Sprite accessSprite;
+    
+
+    [SerializeField]
+    private GameObject locksObject;
+
     private readonly string moneyCountKey = "MoneyCount";
     private readonly string debtPayKey = "DebtPay";
 
-    private void Awake()
+    private void Start()
     {
         if (!PlayerPrefs.HasKey(moneyCountKey))
             PlayerPrefs.SetInt(moneyCountKey, 0);
@@ -31,11 +39,11 @@ public class DebtController : MonoBehaviour
         if (!PlayerPrefs.HasKey(debtPayKey))
             PlayerPrefs.SetInt(debtPayKey, 0);
 
-        bool debtStatus = CheckDebtPayed();
+        bool debtPayCheck = CheckDebtPayed();
 
         buttonsList[0].onClick.AddListener(delegate
         {
-            if (!debtStatus)
+            if (!CheckDebtPayed())
                 TryToPayDebt();
             else
             {
@@ -45,11 +53,11 @@ public class DebtController : MonoBehaviour
 
         buttonsList[1].onClick.AddListener(delegate
         {
-            if (!debtStatus)
+            if (!CheckDebtPayed())
                 TryToPayDebt();
             else
             {
-                sceneManager.LoadSceneByName("CampaignScene");
+                sceneManager.LoadSceneByName("LevelsScene");
             }
         });
     }
@@ -57,7 +65,12 @@ public class DebtController : MonoBehaviour
     private bool CheckDebtPayed()
     {
         if (PlayerPrefs.GetInt(debtPayKey, 0) == 1)
+        {
+            buttonsImagesList[0].sprite = accessSprite;
+            buttonsImagesList[1].sprite = accessSprite;
+            locksObject.SetActive(false);
             return true;
+        }
         else 
             return false;
     }
@@ -72,9 +85,14 @@ public class DebtController : MonoBehaviour
         {
             if (PlayerPrefs.GetInt(moneyCountKey, 0) >= 5000)
             {
-                PlayerPrefs.SetInt(moneyCountKey, PlayerPrefs.GetInt(moneyCountKey, 0) - 5000);
+                int money = PlayerPrefs.GetInt(moneyCountKey, 0) - 5000;
+                PlayerPrefs.SetInt(moneyCountKey, money);
                 PlayerPrefs.SetInt(debtPayKey, 1);
                 debtPayedPanel.SetActive(true);
+                buttonsImagesList[0].sprite = accessSprite;
+                buttonsImagesList[1].sprite = accessSprite;
+                locksObject.SetActive(false);
+                tryToPayDebtPanel.SetActive(false);
             }
         });
 

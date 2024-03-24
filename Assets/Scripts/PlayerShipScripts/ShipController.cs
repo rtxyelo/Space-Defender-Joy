@@ -65,7 +65,10 @@ public class ShipController : PlayerShipBase
             SetIsHeal(1);
             Durability = durabilityOrigin;
             HealthPoints--;
-            gameInfoDisplay.HealthCounterChange(HealthPoints);
+
+            if (gameInfoDisplay != null)
+                gameInfoDisplay.HealthCounterChange(HealthPoints);
+
             if (HealthPoints <= 0)
             {
                 HealthPoints = 0;
@@ -79,6 +82,7 @@ public class ShipController : PlayerShipBase
     protected override void ShipDestroyed(DamageType damageType)
     {
         //Debug.Log($"Ship destroyed by {damageType}!");
+        rb.isKinematic = true;
         DeadEventHandler?.Invoke();
         isDead = true;
         animator.SetBool("IsDead", isDead);
@@ -134,20 +138,21 @@ public class ShipController : PlayerShipBase
         animator.SetBool("IsHit", isHit);
         animator.SetBool("IsHeal", isHeal);
 
-        gameInfoDisplay.HealthCounterChange(HealthPoints);
+        if (gameInfoDisplay != null)
+            gameInfoDisplay.HealthCounterChange(HealthPoints);
     }
 
     private void Update()
     {
         directionX = MoveDirection();
 
-        if (touchDetection.TouchDetected)
+        if (IsShootingAllow && touchDetection.TouchDetected)
         {
             StartCoroutine(ShootRoutine());
         }
 
-        ShipInfo shipInfo = new ShipInfo(Maneuverability, Damage, Durability, ShootingSpeed, HealthPoints, IsDead, IsMoveAllow, IsShootingAllow);
-        Debug.Log("Ship info " + shipInfo.SerializeShipInfo());
+        //ShipInfo shipInfo = new ShipInfo(Maneuverability, Damage, Durability, ShootingSpeed, HealthPoints, IsDead, IsMoveAllow, IsShootingAllow);
+        //Debug.Log("Ship info " + shipInfo.SerializeShipInfo());
     }
 
     private void FixedUpdate()

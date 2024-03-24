@@ -16,6 +16,9 @@ public class TutorialAsteroidSpawner : MonoBehaviour, ISpawner
     [SerializeField]
     private float m_spawnTime = 1.6f;
 
+    [SerializeField]
+    private AudioBehaviour m_audioBehaviour;
+
     private List<GameObject> spawnedAsteroidsList = new List<GameObject>();
 
     private bool isSpawning = false;
@@ -84,6 +87,7 @@ public class TutorialAsteroidSpawner : MonoBehaviour, ISpawner
             // In titorial scene asteroid prefabs use background planets script as their own!
             if (newAsteroid.TryGetComponent(out PlanetController controller))
             {
+                controller.AudioBehaviour = m_audioBehaviour;
                 controller.AddListener(Destroyed);
             }
 

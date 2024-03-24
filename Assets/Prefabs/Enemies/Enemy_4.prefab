@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1794704002144423625}
   m_Layer: 3
   m_Name: Enemy_4
-  m_TagString: Enemy
+  m_TagString: EnemyFour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 5
+  m_Constraints: 7
 --- !u!58 &4476677119945258953
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -300,9 +300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d914064befc5c2a448833d56c268c834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsByKill: 1000
+  moneyByKill: 1000
   movingSpeed: 2.5
-  shootingDelay: 0.5
+  shootingDelay: 1
   healthPoints: 25
   isCanShooting: 0
   isCanMoving: 1
@@ -315,4 +315,10 @@ MonoBehaviour:
   playerShotLayer:
     serializedVersion: 2
     m_Bits: 512
+  DestroyedHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  ShotHandler:
+    m_PersistentCalls:
+      m_Calls: []
   shotPrefab: {fileID: 4244508083194065902, guid: fcc00c738712a5042a2a68f6ecb84b50, type: 3}
