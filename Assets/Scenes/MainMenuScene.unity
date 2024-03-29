@@ -3517,7 +3517,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You want to pay off your debt?
+  m_text: 'Debt paid.
+
+
+    Campaign and shop unlocked!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6102b005f17a1a343bacb4d89315f570, type: 2}
   m_sharedMaterial: {fileID: 3792618719223095395, guid: 6102b005f17a1a343bacb4d89315f570, type: 2}
