@@ -26,6 +26,11 @@ public class BonusesController : MonoBehaviour, IBonusesController
     [SerializeField]
     private List<Sprite> bonusButtonsSpritesList = new List<Sprite>(6);
 
+    [SerializeField] private List<GameObject> _shieldColliders = new List<GameObject>(6);
+
+    [SerializeField]
+    private AudioBehaviour _audioBehaviour;
+
     private readonly string currentShipKey = "CurrentShip";
     private int currentShipIndex;
 
@@ -81,6 +86,36 @@ public class BonusesController : MonoBehaviour, IBonusesController
         DeathRayChangeEvent?.Invoke();
     }
 
+    private void Update()
+    {
+        if (isShieldBonusActive || PlayerPrefs.GetInt(shieldBonusKey) <= 0)
+        {
+            bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[1];
+        }
+        else
+        {
+            bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[0];
+        }
+
+        if (isGunBoostBonusActive || PlayerPrefs.GetInt(gunBoostBonusKey) <= 0)
+        {
+            bonusButtonsImagesList[1].sprite = bonusButtonsSpritesList[3];
+        }
+        else
+        {
+            bonusButtonsImagesList[1].sprite = bonusButtonsSpritesList[2];
+        }
+
+        if (isDeathRayBonusActive || PlayerPrefs.GetInt(deathRayBonusKey) <= 0)
+        {
+            bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[5];
+        }
+        else
+        {
+            bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[4];
+        }
+    }
+
     #region Shield Bonus Methods
 
     public void ShieldBonusOn()
@@ -89,13 +124,17 @@ public class BonusesController : MonoBehaviour, IBonusesController
         {
             isShieldBonusActive = true;
 
+            _audioBehaviour.PlayShieldSound();
+
             bonusButtonsList[0].enabled = false;
 
             PlayerPrefs.SetInt(shieldBonusKey, PlayerPrefs.GetInt(shieldBonusKey, 1) - 1);
 
             ShieldCounterChangeEvent?.Invoke();
 
-            bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[1];
+            //bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[1];
+
+            _shieldColliders[currentShipIndex].SetActive(true);
 
             if (shieldBonusAnimators[currentShipIndex] != null)
             {
@@ -115,9 +154,11 @@ public class BonusesController : MonoBehaviour, IBonusesController
         if (shieldBonusAnimators[currentShipIndex] != null)
             shieldBonusAnimators[currentShipIndex].SetBool("ShieldOff", true);
 
-        bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[0];
+        //bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[0];
 
         bonusButtonsList[0].enabled = true;
+
+        _shieldColliders[currentShipIndex].SetActive(false);
 
         isShieldBonusActive = false;
     }
@@ -131,6 +172,8 @@ public class BonusesController : MonoBehaviour, IBonusesController
             bonusButtonsList[0].enabled = false;
 
             bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[1];
+
+            _shieldColliders[5].SetActive(true);
 
             if (shieldBonusAnimators[shipIndex] != null)
             {
@@ -149,6 +192,8 @@ public class BonusesController : MonoBehaviour, IBonusesController
 
         if (shieldBonusAnimators[shipIndex] != null)
             shieldBonusAnimators[shipIndex].SetBool("ShieldOff", true);
+        
+        _shieldColliders[5].SetActive(false);
 
         bonusButtonsImagesList[0].sprite = bonusButtonsSpritesList[0];
 
@@ -166,13 +211,15 @@ public class BonusesController : MonoBehaviour, IBonusesController
         {
             isDeathRayBonusActive = true;
 
+            _audioBehaviour.PlayLazerSound();
+
             bonusButtonsList[2].enabled = false;
 
             PlayerPrefs.SetInt(deathRayBonusKey, PlayerPrefs.GetInt(deathRayBonusKey, 1) - 1);
 
             DeathRayChangeEvent?.Invoke();
 
-            bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[5];
+            //bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[5];
 
             if (deathRayBonusAnimators[currentShipIndex] != null)
             {
@@ -192,7 +239,7 @@ public class BonusesController : MonoBehaviour, IBonusesController
         if (deathRayBonusAnimators[currentShipIndex] != null)
             deathRayBonusAnimators[currentShipIndex].SetBool("RayOff", true);
 
-        bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[4];
+        //bonusButtonsImagesList[2].sprite = bonusButtonsSpritesList[4];
 
         bonusButtonsList[2].enabled = true;
 
@@ -242,7 +289,7 @@ public class BonusesController : MonoBehaviour, IBonusesController
     {
         if (PlayerPrefs.GetInt(gunBoostBonusKey, 0) > 0 && !isGunBoostBonusActive)
         {
-            isDeathRayBonusActive = true;
+            isGunBoostBonusActive = true;
 
             bonusButtonsList[1].enabled = false;
 
@@ -250,7 +297,7 @@ public class BonusesController : MonoBehaviour, IBonusesController
 
             GunBoostCounterChangeEvent?.Invoke();
 
-            bonusButtonsImagesList[1].sprite = bonusButtonsSpritesList[3];
+            //bonusButtonsImagesList[1].sprite = bonusButtonsSpritesList[3];
 
             GunBoostEvent?.Invoke();
         }

@@ -30,12 +30,6 @@ public class ShopBehaviour : MonoBehaviour
 
     private readonly string moneyCountKey = "MoneyCount";
 
-    private bool isBuyAgree = false;
-
-    private bool isBuyDisagree = false;
-
-    private bool shopAnswer = false;
-
     public UnityEvent<int> ShipEquipped;
 
     private void Awake()
@@ -78,6 +72,7 @@ public class ShopBehaviour : MonoBehaviour
         {
             buyPanel.SetActive(true);
 
+            agreeBuyButton.onClick.RemoveAllListeners();
             agreeBuyButton.onClick.AddListener(() => BuyAgree((ShipType)IndexToShipType(ship), ship, ownedShips));
 
             disagreeBuyButton.onClick.AddListener(BuyDisagree);
@@ -94,12 +89,21 @@ public class ShopBehaviour : MonoBehaviour
         //ToggleAllButtons(buttons, true);
     }
 
+    private void Update()
+    {
+        Debug.Log("Current money " + PlayerPrefs.GetInt(moneyCountKey, 0));
+    }
+
     private void BuyAgree(ShipType ship, int shipIndex, int ownedShips)
     {
         if (shipsPrices[shipIndex - 2] <= PlayerPrefs.GetInt(moneyCountKey, 0))
         {
+            Debug.Log("Ship PRICE " + shipsPrices[shipIndex - 2]);
+            Debug.Log("Current money " + PlayerPrefs.GetInt(moneyCountKey, 0));
 
             int moneyCount = PlayerPrefs.GetInt(moneyCountKey, 0) - shipsPrices[shipIndex - 2];
+
+            Debug.Log("Result money " + moneyCount);
 
             PlayerPrefs.SetInt(moneyCountKey, moneyCount);
 
@@ -109,7 +113,7 @@ public class ShopBehaviour : MonoBehaviour
 
             PlayerPrefs.SetInt(ownedShipsKey, ownedShips);
 
-            ToggleAllButtons(buttons, true);
+            //ToggleAllButtons(buttons, true);
             
             ShipEquipped?.Invoke(shipIndex);
             
@@ -119,7 +123,7 @@ public class ShopBehaviour : MonoBehaviour
 
     private void BuyDisagree()
     {
-        ToggleAllButtons(buttons, true);
+        //ToggleAllButtons(buttons, true);
         buyPanel.SetActive(false);
     }
 

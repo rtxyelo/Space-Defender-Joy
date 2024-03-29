@@ -20,6 +20,9 @@ public class AudioBehaviour : MonoBehaviour
     private AudioSource lazerSound;
 
     [SerializeField]
+    private AudioSource shieldSound;
+
+    [SerializeField]
     private AudioSource enemyDeathSound; 
     
     [SerializeField]
@@ -163,6 +166,15 @@ public class AudioBehaviour : MonoBehaviour
         {
             lazerSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey);
             lazerSound.Play();
+        }
+    }
+
+    public void PlayShieldSound()
+    {
+        if (shieldSound != null && sound)
+        {
+            shieldSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey);
+            shieldSound.Play();
         }
     }
 

@@ -970,6 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642682880}
+  - component: {fileID: 642682881}
   m_Layer: 0
   m_Name: DebugBehaviour
   m_TagString: Untagged
@@ -992,6 +993,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &642682881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642682878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f14f59b5d5124fa3de7b03e984f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
+  endlessMode: 1
+  level: 1
+  maxLevel: 1
+  ship: 1
+  money: 0
+  shieldBonus: 0
+  gunBoostBonus: 0
+  deathRayBonus: 0
+  ownedShips: 1
+  debtPay: 0
+  sound: 1
+  music: 1
+  volume: 1
 --- !u!1 &752428311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,7 +3032,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ac31080684462b74baf5ceea03773c03, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 763b3197c95b161459fc0bed2669d751, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3778,6 +3805,7 @@ MonoBehaviour:
   _volumeSlider: {fileID: 0}
   damageSound: {fileID: 0}
   lazerSound: {fileID: 0}
+  shieldSound: {fileID: 0}
   enemyDeathSound: {fileID: 0}
   enemyShotSound: {fileID: 0}
   enemyShootingSound: {fileID: 0}

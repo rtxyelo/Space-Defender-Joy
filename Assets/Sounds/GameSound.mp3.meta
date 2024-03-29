@@ -21,7 +21,7 @@ AudioImporter:
       compressionFormat: 1
       quality: 1
       conversionMode: 0
-      preloadAudioData: 0
+      preloadAudioData: 1
     7:
       serializedVersion: 2
       loadType: 0

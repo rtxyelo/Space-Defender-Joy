@@ -942,7 +942,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LevelsScene
+          m_StringArgument: MainMenuScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &139663432
@@ -1049,8 +1049,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278724872
+  m_fontColor: {r: 0.03137255, g: 0.16078432, b: 0.03137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1985,6 +1985,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e8d4d2a6a0bb2e54ca419f14769d2a81, type: 3}
   - {fileID: 21300000, guid: 28b70a49dac71b045a4e2bf0d968f25c, type: 3}
   - {fileID: 21300000, guid: 0d1a89ab02145734a86d2b4b483ea0b0, type: 3}
+  _shieldColliders:
+  - {fileID: 7158917530543149595}
+  - {fileID: 5012711514894904877}
+  - {fileID: 6678177012752351359}
+  - {fileID: 448090270029756825}
+  - {fileID: 7473279156777706387}
+  - {fileID: 7173763426667034980}
+  _audioBehaviour: {fileID: 4814441370958056757}
   GunBoostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5309,8 +5317,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278724872
+  m_fontColor: {r: 0.03137255, g: 0.16078432, b: 0.03137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6336,8 +6344,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278724872
+  m_fontColor: {r: 0.03137255, g: 0.16078432, b: 0.03137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8155,18 +8163,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4814441370958056757}
-        m_TargetAssemblyTypeName: AudioBehaviour, Assembly-CSharp
-        m_MethodName: PlayButtonSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 253660983}
         m_TargetAssemblyTypeName: BonusesController, Assembly-CSharp
         m_MethodName: ShieldBonusOn
@@ -8300,18 +8296,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4814441370958056757}
-        m_TargetAssemblyTypeName: AudioBehaviour, Assembly-CSharp
-        m_MethodName: PlayButtonSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 597623767}
         m_TargetAssemblyTypeName: SceneBehaviour, Assembly-CSharp
         m_MethodName: RestartScene
@@ -9079,8 +9063,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278724872
+  m_fontColor: {r: 0.03137255, g: 0.16078432, b: 0.03137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9472,18 +9456,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4814441370958056757}
-        m_TargetAssemblyTypeName: AudioBehaviour, Assembly-CSharp
-        m_MethodName: PlayButtonSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 597623767}
         m_TargetAssemblyTypeName: SceneBehaviour, Assembly-CSharp
         m_MethodName: LoadSceneByName
@@ -10994,18 +10966,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4814441370958056757}
-        m_TargetAssemblyTypeName: AudioBehaviour, Assembly-CSharp
-        m_MethodName: PlayLazerSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2027540355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11626,8 +11586,6 @@ MonoBehaviour:
   _rayOne: {fileID: 3046156095883122154}
   _rayTwo: {fileID: 2125708269966696747}
   _rayThree: {fileID: 1633338489541922029}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
   gameInfoDisplay: {fileID: 931507313}
 --- !u!4 &154587013806463575
 Transform:
@@ -11693,7 +11651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc573ae1dc986364894644d4395a22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   maneuverability: 5
   damage: 5
   durability: 2
@@ -11855,7 +11813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &474775131132477303
 Transform:
   m_ObjectHideFlags: 0
@@ -11922,9 +11880,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.49}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.28
+  m_Radius: 0.55
 --- !u!1 &609698099005404038
 GameObject:
   m_ObjectHideFlags: 0
@@ -12158,7 +12116,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4104
-  radiusOfOverlapcircle: 0.37
+  radiusOfOverlapcircle: 1
   gameInfoDisplay: {fileID: 931507313}
   ShieldDetectEvent:
     m_PersistentCalls:
@@ -12178,7 +12136,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4104
-  radiusOfOverlapcircle: 0.37
+  radiusOfOverlapcircle: 1
   gameInfoDisplay: {fileID: 931507313}
   ShieldDetectEvent:
     m_PersistentCalls:
@@ -12362,21 +12320,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1006295630858987401
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3723254837033909208}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.483, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6253551909606908046}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1016177946999974236
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12766,8 +12709,6 @@ MonoBehaviour:
   _rayOne: {fileID: 6489289585734981157}
   _rayTwo: {fileID: 2860970131111394034}
   _rayThree: {fileID: 4940334632071407829}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
 --- !u!1 &1543827718112814758
 GameObject:
   m_ObjectHideFlags: 0
@@ -12889,8 +12830,6 @@ MonoBehaviour:
   _rayOne: {fileID: 1482051463286316288}
   _rayTwo: {fileID: 5161751225440693295}
   _rayThree: {fileID: 1635614522181972108}
-  _rayFour: {fileID: 5617551035377678860}
-  _rayFive: {fileID: 4849393786268429588}
 --- !u!4 &1616915005425188892
 Transform:
   m_ObjectHideFlags: 0
@@ -13030,8 +12969,6 @@ MonoBehaviour:
   _rayOne: {fileID: 4246727378597105724}
   _rayTwo: {fileID: 1292292839964346069}
   _rayThree: {fileID: 5073767596450846543}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
   gameInfoDisplay: {fileID: 931507313}
 --- !u!4 &1764817439590873300
 Transform:
@@ -13404,8 +13341,6 @@ MonoBehaviour:
   _rayOne: {fileID: 1482051463286316288}
   _rayTwo: {fileID: 5161751225440693295}
   _rayThree: {fileID: 1635614522181972108}
-  _rayFour: {fileID: 5617551035377678860}
-  _rayFive: {fileID: 4849393786268429588}
   gameInfoDisplay: {fileID: 931507313}
 --- !u!114 &2251169959137433816
 MonoBehaviour:
@@ -13422,8 +13357,6 @@ MonoBehaviour:
   _rayOne: {fileID: 1882358822149404122}
   _rayTwo: {fileID: 917133181172481003}
   _rayThree: {fileID: 4675885950525450323}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
   gameInfoDisplay: {fileID: 931507313}
 --- !u!4 &2276379298218964148
 Transform:
@@ -13647,9 +13580,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.39}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.37
+  m_Radius: 0.77
 --- !u!1 &2659473735450891953
 GameObject:
   m_ObjectHideFlags: 0
@@ -13907,7 +13840,7 @@ MonoBehaviour:
     width: 10
     height: 6
   mainCamera: {fileID: 519420031}
-  isDebug: 1
+  isDebug: 0
   rectColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &2755870587985197084
 Transform:
@@ -14571,7 +14504,7 @@ MonoBehaviour:
     width: 10
     height: 6
   mainCamera: {fileID: 519420031}
-  isDebug: 1
+  isDebug: 0
   rectColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3607790663674661855
 MonoBehaviour:
@@ -14585,7 +14518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc573ae1dc986364894644d4395a22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   maneuverability: 3
   damage: 3
   durability: 4
@@ -14614,7 +14547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc573ae1dc986364894644d4395a22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   maneuverability: 5
   damage: 4
   durability: 6
@@ -14700,23 +14633,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &3723254837033909208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1006295630858987401}
-  - component: {fileID: 4849393786268429588}
-  m_Layer: 8
-  m_Name: RayCast5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &3793287450356975964
 Transform:
   m_ObjectHideFlags: 0
@@ -14751,7 +14667,7 @@ MonoBehaviour:
     width: 10
     height: 6
   mainCamera: {fileID: 519420031}
-  isDebug: 1
+  isDebug: 0
   rectColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!212 &3891763501447278016
 SpriteRenderer:
@@ -15121,7 +15037,7 @@ Transform:
   m_GameObject: {fileID: 8659622764233416072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.239, y: 0, z: 0}
+  m_LocalPosition: {x: -0.018, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15284,7 +15200,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4104
-  radiusOfOverlapcircle: 0.43
+  radiusOfOverlapcircle: 1
   gameInfoDisplay: {fileID: 931507313}
   ShieldDetectEvent:
     m_PersistentCalls:
@@ -15312,8 +15228,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7473279156777706387}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15419,7 +15335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc573ae1dc986364894644d4395a22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   maneuverability: 5
   damage: 1
   durability: 2
@@ -15568,8 +15484,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7158917530543149595}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15631,6 +15547,7 @@ MonoBehaviour:
   _volumeSlider: {fileID: 0}
   damageSound: {fileID: 5567373389207802558}
   lazerSound: {fileID: 5872255348845527200}
+  shieldSound: {fileID: 8741705162276173697}
   enemyDeathSound: {fileID: 5816257451369105706}
   enemyShotSound: {fileID: 5872943225798043337}
   enemyShootingSound: {fileID: 8043781538887906117}
@@ -15675,26 +15592,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4849393786268429588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3723254837033909208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2389a6b9ae26a474194ab13d085b2f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  _topBorder: {fileID: 410176788}
-  _shipController: {fileID: 0}
-  RayCastDetectEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &4850471116596354205
 Transform:
   m_ObjectHideFlags: 0
@@ -15718,8 +15615,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678177012752351359}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15740,8 +15637,6 @@ MonoBehaviour:
   _rayOne: {fileID: 3046156095883122154}
   _rayTwo: {fileID: 2125708269966696747}
   _rayThree: {fileID: 1633338489541922029}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
 --- !u!114 &4940334632071407829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15781,7 +15676,7 @@ MonoBehaviour:
     width: 10
     height: 6
   mainCamera: {fileID: 519420031}
-  isDebug: 1
+  isDebug: 0
   rectColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!212 &4954798124727700352
 SpriteRenderer:
@@ -15851,7 +15746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5016349444966249319
 GameObject:
   m_ObjectHideFlags: 0
@@ -15895,8 +15790,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5012711514894904877}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16255,6 +16150,7 @@ GameObject:
   - component: {fileID: 8741705162276173696}
   - component: {fileID: 4386134240021816970}
   - component: {fileID: 6740583317633583845}
+  - component: {fileID: 8741705162276173697}
   m_Layer: 0
   m_Name: AudioBehaviour
   m_TagString: Untagged
@@ -16380,26 +16276,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8927474686359798493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2389a6b9ae26a474194ab13d085b2f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  _topBorder: {fileID: 410176788}
-  _shipController: {fileID: 0}
-  RayCastDetectEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5617551035377678860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9135586835851042409}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2389a6b9ae26a474194ab13d085b2f39, type: 3}
@@ -16762,7 +16638,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4104
-  radiusOfOverlapcircle: 0.28
+  radiusOfOverlapcircle: 0.9
   gameInfoDisplay: {fileID: 931507313}
   ShieldDetectEvent:
     m_PersistentCalls:
@@ -17171,8 +17047,6 @@ MonoBehaviour:
   _rayOne: {fileID: 1882358822149404122}
   _rayTwo: {fileID: 917133181172481003}
   _rayThree: {fileID: 4675885950525450323}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
 --- !u!58 &6208339419719532189
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17207,7 +17081,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.09
+  m_Radius: 1.4
 --- !u!4 &6253551909606908046
 Transform:
   m_ObjectHideFlags: 0
@@ -17224,8 +17098,6 @@ Transform:
   - {fileID: 7002136231697825589}
   - {fileID: 4344247699407328058}
   - {fileID: 7770425762891697636}
-  - {fileID: 8667358228768634716}
-  - {fileID: 1006295630858987401}
   m_Father: {fileID: 6434222096096264883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6282573327414562511
@@ -17502,7 +17374,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4104
-  radiusOfOverlapcircle: 0.28
+  radiusOfOverlapcircle: 0.9
   gameInfoDisplay: {fileID: 931507313}
   ShieldDetectEvent:
     m_PersistentCalls:
@@ -17556,9 +17428,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.39}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.28
+  m_Radius: 0.51
 --- !u!1 &6678177012752351359
 GameObject:
   m_ObjectHideFlags: 0
@@ -17575,7 +17447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &6688945552185510246
 Animator:
   serializedVersion: 5
@@ -17679,7 +17551,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ac31080684462b74baf5ceea03773c03, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 763b3197c95b161459fc0bed2669d751, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -17806,7 +17678,7 @@ Transform:
   m_GameObject: {fileID: 5699343785337361070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.469, y: 0, z: 0}
+  m_LocalPosition: {x: -0.514, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17909,8 +17781,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448090270029756825}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17967,7 +17839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7173763426667034980
 GameObject:
   m_ObjectHideFlags: 0
@@ -17984,7 +17856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &7187498268481286308
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18017,9 +17889,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.46}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.43
+  m_Radius: 0.91
 --- !u!1 &7192996015222889364
 GameObject:
   m_ObjectHideFlags: 0
@@ -18196,7 +18068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc573ae1dc986364894644d4395a22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   maneuverability: 4
   damage: 7
   durability: 7
@@ -18229,7 +18101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7477543245842508217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18245,8 +18117,6 @@ MonoBehaviour:
   _rayOne: {fileID: 6489289585734981157}
   _rayTwo: {fileID: 2860970131111394034}
   _rayThree: {fileID: 4940334632071407829}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
   gameInfoDisplay: {fileID: 931507313}
 --- !u!1 &7494828096497476125
 GameObject:
@@ -18349,8 +18219,6 @@ MonoBehaviour:
   _rayOne: {fileID: 4791783869655956790}
   _rayTwo: {fileID: 3138061819560816085}
   _rayThree: {fileID: 5605190525766798257}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
   gameInfoDisplay: {fileID: 931507313}
 --- !u!1 &7707154283283702775
 GameObject:
@@ -18450,7 +18318,7 @@ Transform:
   m_GameObject: {fileID: 2067188284681124431}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.004, y: 0, z: 0}
+  m_LocalPosition: {x: 0.509, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18523,8 +18391,6 @@ MonoBehaviour:
   _rayOne: {fileID: 4791783869655956790}
   _rayTwo: {fileID: 3138061819560816085}
   _rayThree: {fileID: 5605190525766798257}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
 --- !u!4 &7863002983588926392
 Transform:
   m_ObjectHideFlags: 0
@@ -18848,9 +18714,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.39}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.37
+  m_Radius: 0.76
 --- !u!1 &8295101275659457998
 GameObject:
   m_ObjectHideFlags: 0
@@ -19085,9 +18951,9 @@ Transform:
   m_GameObject: {fileID: 6476755476338701696}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.036, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6434222096096264883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19157,21 +19023,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8667358228768634716
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9135586835851042409}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.259, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6253551909606908046}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8725884190759384512
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19279,6 +19130,102 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6ddb1daeec99e5443a46cb2dc8fdf10c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &8741705162276173697
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436709485887166750}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 45e608a01a013a247a5180ef6ff98914, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19485,7 +19432,7 @@ MonoBehaviour:
     width: 10
     height: 6
   mainCamera: {fileID: 519420031}
-  isDebug: 1
+  isDebug: 0
   rectColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!95 &8850860170914578378
 Animator:
@@ -19575,7 +19522,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 4104
-  radiusOfOverlapcircle: 1.09
+  radiusOfOverlapcircle: 1.4
   gameInfoDisplay: {fileID: 931507313}
   ShieldDetectEvent:
     m_PersistentCalls:
@@ -19682,12 +19629,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc573ae1dc986364894644d4395a22a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   maneuverability: 7
   damage: 5
   durability: 2
   shootingSpeed: 7
-  healthPoints: 0
+  healthPoints: 1
   isTutorial: 0
   DeadEventHandler:
     m_PersistentCalls:
@@ -19714,8 +19661,6 @@ MonoBehaviour:
   _rayOne: {fileID: 4246727378597105724}
   _rayTwo: {fileID: 1292292839964346069}
   _rayThree: {fileID: 5073767596450846543}
-  _rayFour: {fileID: 0}
-  _rayFive: {fileID: 0}
 --- !u!114 &9065442818176621020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19735,25 +19680,8 @@ MonoBehaviour:
     width: 10
     height: 6
   mainCamera: {fileID: 519420031}
-  isDebug: 1
+  isDebug: 0
   rectColor: {r: 0, g: 1, b: 0, a: 1}
---- !u!1 &9135586835851042409
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8667358228768634716}
-  - component: {fileID: 5617551035377678860}
-  m_Layer: 8
-  m_Name: RayCast4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &9137574080719993635
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ using UnityEngine.UI;
 public class DebugController : MonoBehaviour
 {
     [SerializeField]
+    private bool debugEnabled = false;
+
+    [SerializeField]
     private bool endlessMode;
 
     [SerializeField]
@@ -51,7 +54,7 @@ public class DebugController : MonoBehaviour
     [SerializeField]
     private float volume;
 
-    private string _lastBonusDateKey = "LastBonusDate";
+    //private string _lastBonusDateKey = "LastBonusDate";
 
     private readonly string endlessModeKey = "EndlessMode";
     private readonly string maxLevelKey = "MaxLevel";
@@ -114,7 +117,8 @@ public class DebugController : MonoBehaviour
         if (!PlayerPrefs.HasKey(ownedShipsKey))
             PlayerPrefs.SetInt(ownedShipsKey, 1);
 
-        SetPlayerPrefs();
+        if (debugEnabled)
+            SetPlayerPrefs();
     }
 
     private void SetPlayerPrefs()

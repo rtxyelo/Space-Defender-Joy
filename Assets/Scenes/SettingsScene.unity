@@ -3220,11 +3220,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2060530064
 RectTransform:
@@ -4640,6 +4640,7 @@ GameObject:
   - component: {fileID: 5759728241029297574}
   - component: {fileID: 8369499871154572627}
   - component: {fileID: 5815733073874596470}
+  - component: {fileID: 8369499871154572628}
   m_Layer: 0
   m_Name: AudioBehaviour
   m_TagString: Untagged
@@ -4830,7 +4831,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ac31080684462b74baf5ceea03773c03, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 763b3197c95b161459fc0bed2669d751, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5544,6 +5545,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8369499871154572628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065965475708363149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d579a791f025d4086be70d9b7bc547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundOnImg: {fileID: 904203929}
+  _soundOffImg: {fileID: 1977458157}
+  _musicOnImg: {fileID: 845622307}
+  _musicOffImg: {fileID: 2145590375}
+  _soundOnText: {fileID: 966122725}
+  _soundOffText: {fileID: 779744496}
+  _musicOnText: {fileID: 351180898}
+  _musicOffText: {fileID: 924593365}
+  _spriteOn: {fileID: 21300000, guid: e126d36936944d444b7ad595a84f9e06, type: 3}
+  _spriteOff: {fileID: 21300000, guid: 00e38a4afba3d784990de6f33d0edbe3, type: 3}
+  _colorOn: {r: 0.03137255, g: 0.16078432, b: 0.03137255, a: 1}
+  _colorOff: {r: 0.15686275, g: 0.8784314, b: 0.3137255, a: 1}
 --- !u!224 &8580570408836743689
 RectTransform:
   m_ObjectHideFlags: 0

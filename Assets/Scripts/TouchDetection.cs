@@ -35,7 +35,7 @@ public class TouchDetection : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0) && isDebug)
+        if (Input.GetMouseButton(0))
         {
             Vector3 clockPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 

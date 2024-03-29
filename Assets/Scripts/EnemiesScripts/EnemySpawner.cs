@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject newEnemy = Instantiate(enemyPrefab, randomSpawnPosition, Quaternion.identity, transform);
         
-        //_spawnedEnemies.Add(newEnemy);
+        _spawnedEnemies.Add(newEnemy);
 
         if (newEnemy.TryGetComponent(out EnemyController controller))
         {

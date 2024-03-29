@@ -21,11 +21,15 @@ public class DailyBonusController : MonoBehaviour
     private void Start()
     {
         if (PlayerPrefs.HasKey(_lastBonusDateKey))
+        {
             _lastBonusDate = DateTime.Parse(PlayerPrefs.GetString(_lastBonusDateKey));
+            Debug.Log("Last bonus date " + _lastBonusDate);
+        }
 
         if (CalculateDaysSinceLastBonus() >= _daysToReward)
         {
-            PlayerPrefs.SetInt(moneyCountKey, PlayerPrefs.GetInt(moneyCountKey) + 2000);
+            PlayerPrefs.SetInt(moneyCountKey, PlayerPrefs.GetInt(moneyCountKey) + _rewardValue);
+            Debug.Log("Reward " + _rewardValue + " | Current money " + PlayerPrefs.GetInt(moneyCountKey));
             _lastBonusDate = DateTime.Now;
             PlayerPrefs.SetString(_lastBonusDateKey, _lastBonusDate.ToString());
         }

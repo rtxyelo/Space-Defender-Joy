@@ -19,6 +19,8 @@ public class PlanetController : MonoBehaviour
 
     private DestroyEventHandler destroyedHandler;
 
+    private bool isBottomKill = false;
+
     public AudioBehaviour AudioBehaviour { get; set; }
 
     private void Awake()
@@ -39,6 +41,7 @@ public class PlanetController : MonoBehaviour
             if (bottomWallLayer == (1 << collisionLayer))
             {
                 destroyedHandler.Invoke(gameObject);
+                isBottomKill = true;
                 Destroy(gameObject);
             }
 
@@ -59,13 +62,11 @@ public class PlanetController : MonoBehaviour
             if (playerLayer == (1 << collisionLayer))
             {
                 Debug.Log("Collide with player!");
-                AudioBehaviour.PlayeAsteroidDestroyedSound();
                 destroyedHandler.Invoke(gameObject);
                 Destroy(gameObject);
             }
             else if (playerShotLayer == (1 << collisionLayer))
             {
-                AudioBehaviour.PlayeAsteroidDestroyedSound();
                 destroyedHandler.Invoke(gameObject);
                 Destroy(gameObject);
             }
@@ -80,6 +81,13 @@ public class PlanetController : MonoBehaviour
     public void RemoveListener(UnityAction<GameObject> action)
     {
         destroyedHandler.RemoveListener(action);
+    }
+
+    private void OnDestroy()
+    {
+        if (!isBottomKill && AudioBehaviour != null)
+            AudioBehaviour.PlayeAsteroidDestroyedSound();
+        destroyedHandler.RemoveAllListeners();
     }
 }
 

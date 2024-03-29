@@ -15,12 +15,6 @@ public class DeathRaysManager : MonoBehaviour
     private DeathRayBehaviour _rayThree;
 
     [SerializeField]
-    private DeathRayBehaviour _rayFour;
-
-    [SerializeField]
-    private DeathRayBehaviour _rayFive;
-
-    [SerializeField]
     private GameInfoDisplay gameInfoDisplay;
 
     private HashSet<GameObject> _rayOneSet = new HashSet<GameObject>();
@@ -29,26 +23,13 @@ public class DeathRaysManager : MonoBehaviour
 
     private HashSet<GameObject> _rayThreeSet = new HashSet<GameObject>();
 
-    private HashSet<GameObject> _rayFourSet = new HashSet<GameObject>();
-
-    private HashSet<GameObject> _rayFiveSet = new HashSet<GameObject>();
-
-    private void Awake()
+    private void Start()
     {
-        if (_rayOne != null)
-            _rayOne.RayCastDetectEvent.AddListener(RayCastOneHandler);
+        _rayOne.RayCastDetectEvent.AddListener(RayCastOneHandler);
 
-        if (_rayTwo != null)
-            _rayTwo.RayCastDetectEvent.AddListener(RayCastTwoHandler);
+        _rayTwo.RayCastDetectEvent.AddListener(RayCastTwoHandler);
 
-        if (_rayThree != null)
-            _rayThree.RayCastDetectEvent.AddListener(RayCastThreeHandler);
-
-        if (_rayFour != null)
-            _rayFour.RayCastDetectEvent.AddListener(RayCastFourHandler);
-
-        if (_rayFive != null)
-            _rayFive.RayCastDetectEvent.AddListener(RayCastFiveHandler);
+        _rayThree.RayCastDetectEvent.AddListener(RayCastThreeHandler);
     }
 
     private void Update()
@@ -63,12 +44,6 @@ public class DeathRaysManager : MonoBehaviour
 
         if (_rayThreeSet != null)
             _raysSet.UnionWith(_rayThreeSet);
-
-        if (_rayFourSet != null)
-            _raysSet.UnionWith(_rayFourSet);
-
-        if (_rayFiveSet != null)
-            _raysSet.UnionWith(_rayFiveSet);
 
         if (_raysSet.Count > 0 )
         {
@@ -94,12 +69,6 @@ public class DeathRaysManager : MonoBehaviour
 
             if (_rayThreeSet != null)
                 _rayThreeSet.Clear();
-
-            if (_rayFourSet != null)
-                _rayFourSet.Clear();
-
-            if (_rayFiveSet != null)
-                _rayFiveSet.Clear();
         }
     }
 
@@ -114,15 +83,6 @@ public class DeathRaysManager : MonoBehaviour
     private void RayCastThreeHandler(GameObject enemy)
     {
         _rayThreeSet.Add(enemy);
-    }
-    private void RayCastFourHandler(GameObject enemy)
-    {
-        _rayFourSet.Add(enemy);
-    }
-
-    private void RayCastFiveHandler(GameObject enemy)
-    {
-        _rayFiveSet.Add(enemy);
     }
 
     /// <summary>

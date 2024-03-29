@@ -87,6 +87,8 @@ public abstract class PlayerShipBase : MonoBehaviour
 
     protected virtual private void Awake()
     {
+        HealIgnoreCollision(isHeal);
+
         durabilityOrigin = Durability;
 
         DeadEventHandler = new UnityEvent();

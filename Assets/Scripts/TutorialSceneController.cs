@@ -48,6 +48,9 @@ public class TutorialSceneController : MonoBehaviour
     [Header("Misc objects")]
     [Space]
     [SerializeField]
+    private AudioBehaviour audioBehaviour;
+
+    [SerializeField]
     private GameObject tutorialPlayerControlIcon;
 
     [SerializeField]
@@ -146,8 +149,6 @@ public class TutorialSceneController : MonoBehaviour
 
         kennyShipController.IsMoveAllow = false;
         kennyShipController.IsShootingAllow = false;
-
-        Debug.Log("SHOOT? " + kennyShipController.IsShootingAllow);
 
         dialogueManager = GetComponent<DialogueManager>();
         dialogueManager.PlayDialogue(DialogueNumber, isPlaySound);
@@ -363,13 +364,15 @@ public class TutorialSceneController : MonoBehaviour
 
             shipCanMove = true;
 
-            bonusesController.TutorialShieldBonusOn(currentShip);
+            audioBehaviour.PlayShieldSound();
+            bonusesController.TutorialShieldBonusOn(5);
         }
 
         else if (!isBeenCalled && DialogueNumber == 15)
         {
             isBeenCalled = true;
-            bonusesController.TutorialDeathRayBonusOn(currentShip);
+            audioBehaviour.PlayLazerSound();
+            bonusesController.TutorialDeathRayBonusOn(5);
         }
 
         // Bonuses off

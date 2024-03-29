@@ -85,8 +85,11 @@ public class ShipController : PlayerShipBase
         rb.isKinematic = true;
         DeadEventHandler?.Invoke();
         isDead = true;
+        IsMoveAllow = false;
+        IsShootingAllow = false;
         animator.SetBool("IsDead", isDead);
-        Invoke(nameof(OnDestroy), 1f);
+        if (!isTutorial)
+            Invoke(nameof(OnDestroy), 1f);
     }
 
     protected override void OnDestroy()

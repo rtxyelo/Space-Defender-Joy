@@ -46,8 +46,8 @@ public class DeathRayBehaviour : MonoBehaviour
             {
                 foreach (var hit in _hits)
                 {
+                    RayCastDetectEvent.Invoke(hit.collider.gameObject);
                     Debug.Log("Detected enemy " + hit.collider.gameObject.name);
-                    RayCastDetectEvent?.Invoke(hit.collider.gameObject);
                 }
             }
 

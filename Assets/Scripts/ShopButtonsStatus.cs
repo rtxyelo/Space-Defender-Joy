@@ -63,7 +63,7 @@ public class ShopButtonsStatus : MonoBehaviour
         {
             bool isShipOwned = shopBehaviour.IsShipOwned((ShipType)IndexToShipType(i + 1), PlayerPrefs.GetInt(ownedShipsKey, 1));
 
-            Debug.Log($"Ship {i + 1} owned status is " + isShipOwned);
+            //Debug.Log($"Ship {i + 1} owned status is " + isShipOwned);
 
             if (i + 1 == shipIndex)
             {
@@ -78,6 +78,17 @@ public class ShopButtonsStatus : MonoBehaviour
             else if (isShipOwned && shopButtonsTexts[i].text == "EQUIPPED")
             {
                 shopButtonsTexts[i].text = "EQUIP";
+                if (i > 0)
+                {
+                    shopButtonsPricesCoins[i - 1].enabled = false;
+                    shopButtonsPricesTexts[i - 1].text = "";
+                }
+            }
+            else if (i > 0 && isShipOwned)
+            {
+                shopButtonsTexts[i].text = "EQUIP";
+                shopButtonsPricesCoins[i - 1].enabled = false;
+                shopButtonsPricesTexts[i - 1].text = "";
             }
         }
     }

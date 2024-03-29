@@ -64,7 +64,9 @@ public class EnemyController : EnemyControllerBase
 
     protected override void OnDestroy()
     {
-        AudioBehaviour.PlayEnemyDeathSound();
+        if (AudioBehaviour != null)
+            AudioBehaviour.PlayEnemyDeathSound();
+
         DestroyedHandler.RemoveAllListeners();
         ShotHandler.RemoveAllListeners();
     }

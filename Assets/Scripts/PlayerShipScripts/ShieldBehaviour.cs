@@ -35,7 +35,6 @@ public class ShieldBehaviour : MonoBehaviour
     {
         if (_isShieldOn)
         {
-            Debug.Log("Test");
             Collider2D[] _hits = Physics2D.OverlapCircleAll(transform.position, radiusOfOverlapcircle, _layerMask);
 
             if (_hits != null)

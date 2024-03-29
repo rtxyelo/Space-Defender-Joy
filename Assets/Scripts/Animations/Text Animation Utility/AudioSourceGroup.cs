@@ -4,17 +4,18 @@ public class AudioSourceGroup : MonoBehaviour
 {
     public AudioSource[] typingSources;
     private int nextTypeSource = 0;
-    private readonly string _musicVolumeKey = "MusicVolumeKey";
+    //private readonly string _musicVolumeKey = "MusicVolumeKey";
+    private readonly string _soundKey = "SoundKey";
 
     public void PlayFromNextSource(AudioClip clip) {
         AudioSource nextSource = typingSources[nextTypeSource];
 
         nextSource.clip = clip;
 
-        if (PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f) * 2f > 1f)
+        if (PlayerPrefs.GetInt(_soundKey, 0) == 1)
             nextSource.volume = 1f;
         else
-            nextSource.volume = PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f);
+            nextSource.volume = 0f;
 
         nextSource.Play();
 

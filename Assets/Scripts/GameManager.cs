@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        isShipDestroyed = false;
+        isShipShoted = false;
+        gunBoostIsActive = false;
+        elapsedTime = 0f;
+
         if (!PlayerPrefs.HasKey(currentLevelKey))
             PlayerPrefs.SetInt(currentLevelKey, 1);
 
@@ -116,7 +121,9 @@ public class GameManager : MonoBehaviour
     {
         if (!_isEndlessMode)
         {
-            if (Time.unscaledTime >= levelsDurationList[currentLevel - 1] || isShipDestroyed)
+            elapsedTime += Time.deltaTime;
+
+            if (isShipDestroyed)
             {
                 enemySpawner.IsSpawnAllow = false;
                 DeactiveteGunBoostBonus();
@@ -124,11 +131,12 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Game Lose!");
                 GameLose();
             }
-            else if (Time.unscaledTime >= levelsDurationList[currentLevel - 1] && !isShipDestroyed)
+            else if (elapsedTime >= levelsDurationList[currentLevel - 1] && !isShipDestroyed)
             {
                 enemySpawner.IsSpawnAllow = false;
                 DeactiveteGunBoostBonus();
                 bonusesController.ResetBonuses();
+                playersList[currentShip - 1].SetActive(false);
                 Debug.Log("Game Win!");
                 GameWin();
             }
@@ -166,6 +174,7 @@ public class GameManager : MonoBehaviour
                 DeactiveteGunBoostBonus();
                 bonusesController.ResetBonuses();
                 Debug.Log("Game Over!");
+                GameLose();
             }
         }
 
