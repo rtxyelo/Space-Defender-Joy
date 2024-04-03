@@ -30,7 +30,7 @@ namespace StarsAnimation
                 animator.Play("Brilliance");
         }
     }
-
+#if UNITY_EDITOR
     [CustomEditor(typeof(StarsAnimationController))]
     public class StarsAnimationControllerEditor : Editor
     {
@@ -48,4 +48,5 @@ namespace StarsAnimation
             script.animationSpeed = EditorGUILayout.FloatField("Animation Speed", script.animationSpeed);
         }
     }
+#endif
 }

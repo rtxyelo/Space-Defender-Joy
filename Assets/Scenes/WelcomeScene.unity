@@ -1016,8 +1016,8 @@ MonoBehaviour:
   deathRayBonus: 0
   ownedShips: 1
   debtPay: 0
-  sound: 1
-  music: 1
+  sound: 0
+  music: 0
   volume: 1
 --- !u!1 &752428311
 GameObject:
@@ -4940,7 +4940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a77f77443ba1b45aea68df62e36559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRandomAnimSpeed: 0
+  isRandomAnimSpeed: 1
   animationSpeed: 1.3
 --- !u!1 &4290226345141289154
 GameObject:

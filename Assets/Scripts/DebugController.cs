@@ -79,10 +79,10 @@ public class DebugController : MonoBehaviour
     private void Awake()
     {
         if (!PlayerPrefs.HasKey(_soundKey))
-            PlayerPrefs.SetInt(_soundKey, Convert.ToInt32(true));
+            PlayerPrefs.SetInt(_soundKey, Convert.ToInt32(false));
 
         if (!PlayerPrefs.HasKey(_musicKey))
-            PlayerPrefs.SetInt(_musicKey, Convert.ToInt32(true));
+            PlayerPrefs.SetInt(_musicKey, Convert.ToInt32(false));
 
         if (!PlayerPrefs.HasKey(endlessModeKey))
             PlayerPrefs.SetInt(endlessModeKey, Convert.ToInt32(true));

@@ -56,13 +56,13 @@ public class AudioBehaviour : MonoBehaviour
     private void Start()
     {
         if (!PlayerPrefs.HasKey(_soundKey))
-            PlayerPrefs.SetInt(_soundKey, Convert.ToInt32(true));
+            PlayerPrefs.SetInt(_soundKey, Convert.ToInt32(false));
 
         if (!PlayerPrefs.HasKey(_musicKey))
-            PlayerPrefs.SetInt(_musicKey, Convert.ToInt32(true));
+            PlayerPrefs.SetInt(_musicKey, Convert.ToInt32(false));
 
-        sound = Convert.ToBoolean(PlayerPrefs.GetInt(_soundKey, Convert.ToInt32(true)));
-        music = Convert.ToBoolean(PlayerPrefs.GetInt(_musicKey, Convert.ToInt32(true)));
+        sound = Convert.ToBoolean(PlayerPrefs.GetInt(_soundKey, Convert.ToInt32(false)));
+        music = Convert.ToBoolean(PlayerPrefs.GetInt(_musicKey, Convert.ToInt32(false)));
 
         if (!PlayerPrefs.HasKey(_musicVolumeKey))
         {
